@@ -1,6 +1,8 @@
 var router = require('express').Router(),
     request = require('request'),
+    path = require("path"),
     // moment = request('moment'),
+    config = require('../config/oss'),
     fs = require('fs'),
     path = require('path'),
     oss = require('../models/oss'),
@@ -58,7 +60,8 @@ router.post('/uploadimg', (req, res) => {
         if (err) {
             return res.send(rs.response('error'));
         }
-        var localUrl = files.IMG.path;
+        console.log(err, fields, files);
+        var localUrl = fields.IMG.path;
         var newName = new Date().getTime() + '-' + parseInt(Math.random() * 100000000) + path.extname(localUrl);
         var newPath = path.join(uploadPath, newName);
         fs.renameSync(localUrl, newPath); //重命名
