@@ -5,7 +5,7 @@ var router = require('express').Router(),
     path = require('path'),
     oss = require('../models/oss'),
     formidable = require('formidable');
-
+var config = require('../config/oss');
 module.exports = router;
 var rs = {
         response: function(code, msg, body) {

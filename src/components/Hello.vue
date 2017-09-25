@@ -8,6 +8,8 @@
             </li>
         </ul>
         <h2>Ecosystem</h2>
+        <input type="file" ref='input' @change="hhe">
+        <img :src="src" v-if="src">
         <ul>
             <li>
                 <router-link to="/login">login</router-link>
@@ -26,28 +28,46 @@
 </template>
 
 <script>
-    
-import {mapState,mapActions,mapMutations} from 'vuex';
+
+import { mapState, mapActions, mapMutations } from 'vuex';
 
 export default {
     name: 'Hello',
     data() {
         return {
-            msg:'false',
+            msg: 'false',
+            src: null
         }
     },
-    computed:{
+    computed: {
         ...mapState([
             'fuck'
         ]),
     },
     methods: {
         ...mapActions([
-				'SHIT'
-			]),
+            'SHIT'
+        ]),
         damn() {
             this.SHIT();
         },
+        hhe() {
+            var that = this;
+            var files = this.$refs.input.files[0];
+            console.log(files);
+            var fd = new FormData();
+            fd.append('IMG', files);
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var data = JSON.parse(xhr.responseText);
+                    console.log(data);
+                    that.src = data.body.base + data.body.url;
+                }
+            };
+            xhr.open("post", '/api/uploadimg');
+            xhr.send(fd);
+        }
     }
 }
 </script>
