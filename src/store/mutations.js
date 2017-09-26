@@ -3,8 +3,8 @@ export default {
     [types.SHIT](state, msg) {
         state.fuck = msg;
     },
-    [types.LOGIN](state, data) {
-        state.name = data.name;
+    [types.LOGIN](state, uid) {
+        state.uid = uid;
     },
     [types.SIGNUP](state, data) {
         state.name = data.name;

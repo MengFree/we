@@ -7,10 +7,12 @@ export default {
     },
     [types.LOGIN]({ commit, state }, data) {
         console.log(data);
-        firebase.auth()
+        return firebase.auth()
             .signInWithEmailAndPassword(data.email, data.password)
-            .then(data => {
-                console.log(data);
+            .then(user => {
+                console.log(user);
+                var uid = user.uid;
+                commit(types.LOGIN, uid);
             })
             .catch(error => {
                 console.log(error);

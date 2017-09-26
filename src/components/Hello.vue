@@ -54,7 +54,7 @@ export default {
         hhe() {
             var that = this;
             var files = this.$refs.input.files[0];
-            console.log(files);
+            // console.log(files);
             var fd = new FormData();
             fd.append('IMG', files);
             var xhr = new XMLHttpRequest();
