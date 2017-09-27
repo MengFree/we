@@ -17,8 +17,11 @@
     "co": "^4.6.0",
     "firebase": "^4.4.0",
     "formidable": "^1.1.1",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5",
     "moment": "^2.18.1",
     "request": "^2.82.0",
+    "style-loader": "^0.18.2",
     "vue": "^2.4.2",
     "vue-router": "^2.7.0",
     "vuex": "^2.4.0"

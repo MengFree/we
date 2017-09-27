@@ -21,6 +21,9 @@
             <li>
                 <router-link to="/signup">signup</router-link>
             </li>
+            <li>
+                <router-link to="/home">home</router-link>
+            </li>
         </ul>
     </div>
 </template>
