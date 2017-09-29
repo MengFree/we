@@ -15,6 +15,7 @@
     "axios": "^0.16.2",
     "babel-polyfill": "^6.26.0",
     "co": "^4.6.0",
+    "fastclick": "^1.0.6",
     "firebase": "^4.4.0",
     "formidable": "^1.1.1",
     "less": "^2.7.2",
@@ -24,7 +25,10 @@
     "style-loader": "^0.18.2",
     "vue": "^2.4.2",
     "vue-router": "^2.7.0",
-    "vuex": "^2.4.0"
+    "vuex": "^2.4.0",
+    "vux": "^2.6.4",
+    "vux-loader": "^1.1.10",
+    "yaml-loader": "^0.5.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

@@ -11,7 +11,7 @@
                 <input v-model="user.password" type="password" name="" id="" />
             </div>
             <div class="row">
-                <button @click="LOGIN(user)">login</button>
+                <button @click="login(user)">login</button>
             </div>
         </div>
         <ul>
@@ -55,6 +55,14 @@ export default {
         damn() {
             this.SHIT();
         },
+        login(data) {
+            this.LOGIN(data).then(data => {
+                console.log(data);
+                this.$router.push('/home');
+            }, data => {
+                console.log('error', data);
+            })
+        }
     }
 }
 </script>

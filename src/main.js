@@ -9,7 +9,6 @@ import axios from './serve/axios'
 // import './style/main.css'
 import './style/main.less'
 router.beforeEach(function(to, from, next) {
-    console.log(store.state.uid)
     if (!store.state.uid && !(to.name == 'Hello' || to.name == 'login' || to.name == 'signup')) {
         return next({
             path: '/login'
@@ -17,7 +16,8 @@ router.beforeEach(function(to, from, next) {
     }
     next()
 })
-
+const FastClick = require('fastclick')
+FastClick.attach(document.body)
 Vue.use(Vuex);
 var store = new Vuex.Store(astore);
 Vue.config.productionTip = false

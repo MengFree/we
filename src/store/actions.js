@@ -7,11 +7,13 @@ export default {
     },
     [types.LOGIN]({ commit, state }, data) {
         console.log(data);
-        commit(types.LOGIN, data);
-        return new Promise(resolve => {
-            resolve('done');
-        }, reject => {
-            reject('damn')
+        return new Promise(function(resolve, reject) {
+            if (data.email && data.password) {
+                commit(types.LOGIN, data);
+                resolve('done');
+            } else {
+                reject('damn');
+            }
         });
         // return firebase.auth()
         //     .signInWithEmailAndPassword(data.email, data.password)
