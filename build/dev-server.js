@@ -11,7 +11,11 @@ var express = require('express')
 var webpack = require('webpack')
 var proxyMiddleware = require('http-proxy-middleware')
 var webpackConfig = require('./webpack.dev.conf')
-
+var minimist = require('minimist');
+var args = minimist(process.argv.slice(2), { //取命令行参数
+    string: ["env"]
+});
+console.log(args);
 // default port where dev server listens for incoming traffic
 var port = process.env.PORT || config.dev.port
     // automatically open browser, if not set will be false
@@ -75,8 +79,8 @@ console.log('> Starting dev server...')
 devMiddleware.waitUntilValid(() => {
     console.log('> Listening at ' + uri + '\n')
         // when env is testing, don't need open it
-    if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
-        opn(uri)
+    if (autoOpenBrowser && process.env.NODE_ENV !== 'testing' && args.env == 'dev') {
+        // opn(uri)
     }
     _resolve()
 })

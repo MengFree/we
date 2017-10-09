@@ -78,3 +78,7 @@ router.post('/uploadimg', (req, res) => {
         });
     });
 });
+
+router.get('/test', (req, res) => {
+    res.end('end !!!!!!!!!!!!!!!!!!!');
+})

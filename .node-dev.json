@@ -1,0 +1,13 @@
+{
+    "clear": false,
+    "notify": true,
+    "timestamp": "HH:MM:ss",
+    "vm": true,
+    "fork": true,
+    "deps": 1,
+    "dedupe": false,
+    "ignore": [
+        "node_modules/*",
+        "src/*"
+    ]
+}
