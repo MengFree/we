@@ -7,8 +7,6 @@
                     </cell>
                     <cell title="test1" link="/home/test1" @click.native="drawerVisibility = false">
                     </cell>
-                    <cell title="Github" link="http://github.com/airyland/vux" value="Star me" @click.native="drawerVisibility = false">
-                    </cell>
                 </group>
             </div>
             <view-box ref="viewBox" body-padding-bottom="55px">

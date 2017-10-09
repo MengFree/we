@@ -24,12 +24,14 @@
         "minimist": "^1.2.0",
         "moment": "^2.18.1",
         "request": "^2.82.0",
+        "sails-mysql": "^0.11.5",
         "style-loader": "^0.18.2",
         "vue": "^2.4.2",
         "vue-router": "^2.7.0",
         "vuex": "^2.4.0",
         "vux": "^2.6.4",
         "vux-loader": "^1.1.10",
+        "waterline": "^0.13.1-6",
         "yaml-loader": "^0.5.0"
     },
     "devDependencies": {

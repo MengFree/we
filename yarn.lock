@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@sailshq/lodash@^3.10.2":
+  version "3.10.2"
+  resolved "http://registry.npm.taobao.org/@sailshq/lodash/download/@sailshq/lodash-3.10.2.tgz#1567d47345364c2c2e2077bc113487b1dfe62154"
+
 abab@^1.0.0:
   version "1.0.4"
   resolved "http://registry.npm.taobao.org/abab/download/abab-1.0.4.tgz#5faad9c2c07f60dd76770f71cf025b62a63cfd4e"
@@ -129,6 +133,13 @@ align-text@^0.1.1, align-text@^0.1.3:
 alphanum-sort@^1.0.1, alphanum-sort@^1.0.2:
   version "1.0.2"
   resolved "http://registry.npm.taobao.org/alphanum-sort/download/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
+
+anchor@^1.1.0:
+  version "1.1.2"
+  resolved "http://registry.npm.taobao.org/anchor/download/anchor-1.1.2.tgz#af468c01778ccc2ffb721bd2acdd58c0bb5ab6ce"
+  dependencies:
+    "@sailshq/lodash" "^3.10.2"
+    validator "4.4.0"
 
 ansi-escapes@^1.1.0:
   version "1.4.0"
@@ -270,11 +281,25 @@ async-each@^1.0.0:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/async-each/download/async-each-1.0.1.tgz#19d386a1d9edc6e7c1c85d388aedbcc56d33602d"
 
+async@1.5.2:
+  version "1.5.2"
+  resolved "http://registry.npm.taobao.org/async/download/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
+
+async@2.0.1:
+  version "2.0.1"
+  resolved "http://registry.npm.taobao.org/async/download/async-2.0.1.tgz#b709cc0280a9c36f09f4536be823c838a9049e25"
+  dependencies:
+    lodash "^4.8.0"
+
 async@^2.1.2:
   version "2.5.0"
   resolved "http://registry.npm.taobao.org/async/download/async-2.5.0.tgz#843190fd6b7357a0b9e1c956edddd5ec8462b54d"
   dependencies:
     lodash "^4.14.0"
+
+async@~0.9.0:
+  version "0.9.2"
+  resolved "http://registry.npm.taobao.org/async/download/async-0.9.2.tgz#aea74d5e61c1f899613bf64bda66d4c78f2fd17d"
 
 asynckit@^0.4.0:
   version "0.4.0"
@@ -936,6 +961,10 @@ big.js@^3.1.3:
   version "3.2.0"
   resolved "http://registry.npm.taobao.org/big.js/download/big.js-3.2.0.tgz#a5fc298b81b9e0dca2e458824784b65c52ba588e"
 
+bignumber.js@2.1.4:
+  version "2.1.4"
+  resolved "http://registry.npm.taobao.org/bignumber.js/download/bignumber.js-2.1.4.tgz#29b3bb693dbb238e88b72eac2fb89650888b2d59"
+
 binary-extensions@^1.0.0:
   version "1.10.0"
   resolved "http://registry.npm.taobao.org/binary-extensions/download/binary-extensions-1.10.0.tgz#9aeb9a6c5e88638aad171e167f5900abe24835d0"
@@ -945,6 +974,10 @@ block-stream@*:
   resolved "http://registry.npm.taobao.org/block-stream/download/block-stream-0.0.9.tgz#13ebfe778a03205cfe03751481ebb4b3300c126a"
   dependencies:
     inherits "~2.0.0"
+
+bluebird@3.2.1:
+  version "3.2.1"
+  resolved "http://registry.npm.taobao.org/bluebird/download/bluebird-3.2.1.tgz#3cecf3504904c30ce3e79c170877e893a11910fd"
 
 bluebird@^2.10.2:
   version "2.11.0"
@@ -1864,6 +1897,12 @@ encodeurl@~1.0.1:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/encodeurl/download/encodeurl-1.0.1.tgz#79e3d58655346909fe6f0f45a5de68103b294d20"
 
+encrypted-attr@1.0.6:
+  version "1.0.6"
+  resolved "http://registry.npm.taobao.org/encrypted-attr/download/encrypted-attr-1.0.6.tgz#5b9f81a9308ebe99dbe9cdd84523c8fdabb6f95e"
+  dependencies:
+    lodash "^4.17.4"
+
 end-or-error@^1.0.1:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/end-or-error/download/end-or-error-1.0.1.tgz#dc7a6210fe78d372fee24a8b4899dbd155414dcb"
@@ -2342,6 +2381,12 @@ flatten@^1.0.2:
   version "1.0.2"
   resolved "http://registry.npm.taobao.org/flatten/download/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
 
+flaverr@^1.1.1, flaverr@^1.2.1:
+  version "1.2.4"
+  resolved "http://registry.npm.taobao.org/flaverr/download/flaverr-1.2.4.tgz#24108b6a690c1da218a2352abeb66e3391857a68"
+  dependencies:
+    "@sailshq/lodash" "^3.10.2"
+
 follow-redirects@1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/follow-redirects/download/follow-redirects-1.0.0.tgz#8e34298cbd2e176f254effec75a1c78cc849fd37"
@@ -2407,6 +2452,16 @@ friendly-errors-webpack-plugin@^1.1.3:
     chalk "^1.1.3"
     error-stack-parser "^2.0.0"
     string-length "^1.0.1"
+
+fs-extra@0.30.0:
+  version "0.30.0"
+  resolved "http://registry.npm.taobao.org/fs-extra/download/fs-extra-0.30.0.tgz#f233ffcc08d4da7d432daa449776989db1df93f0"
+  dependencies:
+    graceful-fs "^4.1.2"
+    jsonfile "^2.1.0"
+    klaw "^1.0.0"
+    path-is-absolute "^1.0.0"
+    rimraf "^2.2.8"
 
 fs-extra@^0.26.4:
   version "0.26.7"
@@ -3386,6 +3441,10 @@ lodash.isplainobject@^4.0.6:
   version "4.0.6"
   resolved "http://registry.npm.taobao.org/lodash.isplainobject/download/lodash.isplainobject-4.0.6.tgz#7c526a52d89b45c45cc690b88163be0497f550cb"
 
+lodash.issafeinteger@4.0.4:
+  version "4.0.4"
+  resolved "http://registry.npm.taobao.org/lodash.issafeinteger/download/lodash.issafeinteger-4.0.4.tgz#b176d5990ec649d06bedcbce2f028e7890494f90"
+
 lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "http://registry.npm.taobao.org/lodash.memoize/download/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
@@ -3410,9 +3469,21 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "http://registry.npm.taobao.org/lodash.uniq/download/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
-lodash@^4.0.0, lodash@^4.1.0, lodash@^4.14.0, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.3.0:
+lodash@3.10.0:
+  version "3.10.0"
+  resolved "http://registry.npm.taobao.org/lodash/download/lodash-3.10.0.tgz#93d51c672828a4416a12af57220ba8a8737e2fbb"
+
+lodash@3.10.1:
+  version "3.10.1"
+  resolved "http://registry.npm.taobao.org/lodash/download/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
+
+lodash@^4.0.0, lodash@^4.1.0, lodash@^4.14.0, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.3.0, lodash@^4.8.0:
   version "4.17.4"
   resolved "http://registry.npm.taobao.org/lodash/download/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
+
+lodash@~2.4.1:
+  version "2.4.2"
+  resolved "http://registry.npm.taobao.org/lodash/download/lodash-2.4.2.tgz#fadd834b9683073da179b3eae6d9c0d15053f73e"
 
 log-symbols@^1.0.2:
   version "1.0.2"
@@ -3593,6 +3664,13 @@ ms@2.0.0, ms@^2.0.0:
 mute-stream@0.0.5:
   version "0.0.5"
   resolved "http://registry.npm.taobao.org/mute-stream/download/mute-stream-0.0.5.tgz#8fbfabb0a98a253d3184331f9e8deb7372fac6c0"
+
+mysql@2.10.2:
+  version "2.10.2"
+  resolved "http://registry.npm.taobao.org/mysql/download/mysql-2.10.2.tgz#9ee5e46f056b2ba3a7840a10eae3426f59384292"
+  dependencies:
+    bignumber.js "2.1.4"
+    readable-stream "~1.1.13"
 
 nan@^2.3.0:
   version "2.7.0"
@@ -3913,6 +3991,14 @@ param-case@2.1.x:
   resolved "http://registry.npm.taobao.org/param-case/download/param-case-2.1.1.tgz#df94fd8cf6531ecf75e6bef9a0858fbc72be2247"
   dependencies:
     no-case "^2.2.0"
+
+parley@^3.0.0-0:
+  version "3.0.0"
+  resolved "http://registry.npm.taobao.org/parley/download/parley-3.0.0.tgz#5df36a03713bd39a8f23805ef934ae8f3174a9a5"
+  dependencies:
+    "@sailshq/lodash" "^3.10.2"
+    bluebird "3.2.1"
+    flaverr "^1.2.1"
 
 parse-asn1@^5.0.0:
   version "5.1.0"
@@ -4516,7 +4602,7 @@ readable-stream@1.1:
     isarray "0.0.1"
     string_decoder "~0.10.x"
 
-readable-stream@1.1.x:
+readable-stream@1.1.x, readable-stream@~1.1.13:
   version "1.1.14"
   resolved "http://registry.npm.taobao.org/readable-stream/download/readable-stream-1.1.14.tgz#7cf4c54ef648e3813084c636dd2079e166c081d9"
   dependencies:
@@ -4805,6 +4891,12 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^2.0.0"
     inherits "^2.0.1"
 
+rttc@^10.0.0-1:
+  version "10.0.0-1"
+  resolved "http://registry.npm.taobao.org/rttc/download/rttc-10.0.0-1.tgz#9e6effc2599c40a128ea580a01bd01830013c56f"
+  dependencies:
+    "@sailshq/lodash" "^3.10.2"
+
 run-async@^0.1.0:
   version "0.1.0"
   resolved "http://registry.npm.taobao.org/run-async/download/run-async-0.1.0.tgz#c8ad4a5e110661e402a7d21b530e009f25f8e389"
@@ -4822,6 +4914,17 @@ safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@^5.1.1, safe-buffer@~5.1.0, 
 safe-buffer@~5.0.1:
   version "5.0.1"
   resolved "http://registry.npm.taobao.org/safe-buffer/download/safe-buffer-5.0.1.tgz#d263ca54696cd8a306b5ca6551e92de57918fbe7"
+
+sails-mysql@^0.11.5:
+  version "0.11.5"
+  resolved "http://registry.npm.taobao.org/sails-mysql/download/sails-mysql-0.11.5.tgz#ab2a2cd7b8b48d32190cc961f8e984921b7fe60b"
+  dependencies:
+    async "1.5.2"
+    lodash "3.10.1"
+    mysql "2.10.2"
+    waterline-cursor "0.0.6"
+    waterline-errors "0.10.1"
+    waterline-sequel "0.5.7"
 
 sax@>=0.6.0, sax@^1.1.4, sax@~1.2.1:
   version "1.2.4"
@@ -5429,6 +5532,10 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "~1.0.0"
     spdx-expression-parse "~1.0.0"
 
+validator@4.4.0:
+  version "4.4.0"
+  resolved "http://registry.npm.taobao.org/validator/download/validator-4.4.0.tgz#35e29555dd5f7826f970a4eaecff9e6df6df3da6"
+
 validator@^6.2.1:
   version "6.3.0"
   resolved "http://registry.npm.taobao.org/validator/download/validator-6.3.0.tgz#47ce23ed8d4eaddfa9d4b8ef0071b6cf1078d7c8"
@@ -5574,6 +5681,54 @@ watchpack@^1.3.1:
     async "^2.1.2"
     chokidar "^1.7.0"
     graceful-fs "^4.1.2"
+
+waterline-cursor@0.0.6:
+  version "0.0.6"
+  resolved "http://registry.npm.taobao.org/waterline-cursor/download/waterline-cursor-0.0.6.tgz#7750eea88b88f800996d1153047dbc850f452f4f"
+  dependencies:
+    async "~0.9.0"
+    lodash "~2.4.1"
+
+waterline-errors@0.10.1:
+  version "0.10.1"
+  resolved "http://registry.npm.taobao.org/waterline-errors/download/waterline-errors-0.10.1.tgz#ee63632aadde993271b7514b7ca98d9fd5b86a2e"
+
+waterline-schema@^1.0.0-20:
+  version "1.0.0-20"
+  resolved "http://registry.npm.taobao.org/waterline-schema/download/waterline-schema-1.0.0-20.tgz#630ca0900b7308256556037679a9174e56f2ce31"
+  dependencies:
+    "@sailshq/lodash" "^3.10.2"
+    rttc "^10.0.0-1"
+
+waterline-sequel@0.5.7:
+  version "0.5.7"
+  resolved "http://registry.npm.taobao.org/waterline-sequel/download/waterline-sequel-0.5.7.tgz#1d7e4328babfad8a31bd3fb26a86d71800ad828d"
+  dependencies:
+    lodash "3.10.0"
+
+waterline-utils@^1.3.7:
+  version "1.3.23"
+  resolved "http://registry.npm.taobao.org/waterline-utils/download/waterline-utils-1.3.23.tgz#990f3271a36c769954b5ab3144dc63ea10ee7726"
+  dependencies:
+    "@sailshq/lodash" "^3.10.2"
+    async "2.0.1"
+    flaverr "^1.1.1"
+    fs-extra "0.30.0"
+
+waterline@^0.13.1-6:
+  version "0.13.1-6"
+  resolved "http://registry.npm.taobao.org/waterline/download/waterline-0.13.1-6.tgz#1ea15046a8bf7bec0c5a19a6ac0c5d164c6e9096"
+  dependencies:
+    "@sailshq/lodash" "^3.10.2"
+    anchor "^1.1.0"
+    async "2.0.1"
+    encrypted-attr "1.0.6"
+    flaverr "^1.2.1"
+    lodash.issafeinteger "4.0.4"
+    parley "^3.0.0-0"
+    rttc "^10.0.0-1"
+    waterline-schema "^1.0.0-20"
+    waterline-utils "^1.3.7"
 
 webidl-conversions@^2.0.0:
   version "2.0.1"
