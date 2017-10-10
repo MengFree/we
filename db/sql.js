@@ -27,6 +27,7 @@ function query(sql, params) {
                 return reject(err)
             }
             var json = JSON.parse(JSON.stringify(rows))
+            console.log('rows = ', json)
             resolve(json, fields)
         })
     })

@@ -42,9 +42,9 @@ export default {
                 api.signup(data).then(res => {
                     if (res.data.code == 200) {
                         commit(types.SIGNUP, res.data.body)
-                        resolve(res.data.body)
+                        resolve(res.data)
                     } else {
-                        reject(res.data.msg)
+                        reject(res.data.meta.msg)
                     }
                 })
             } else {

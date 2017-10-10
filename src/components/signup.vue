@@ -62,7 +62,12 @@ export default {
         },
         signup(data) {
             console.log(data);
-            this.SIGNUP(data)
+            this.SIGNUP(data).then(res => {
+                console.log(res)
+                console.log(res.meta.msg)
+            }).catch(res => {
+                console.log(res)
+            })
         }
     }
 }

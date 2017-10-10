@@ -102,36 +102,31 @@ router.get("/signup", (req, res) => {
     console.log(req.query.name, req.query.email, md5(req.query.password))
     con("select `user_id` from user where `email`=?", [req.query.email])
         .then(rows1 => {
-            console.log(rows1)
             if (rows1.length) {
                 throw new Error(111)
             }
             return con("select `user_id` from user where `username`=?", [req.query.name])
         }).then(rows1 => {
-            console.log(rows1)
             if (rows1.length) {
                 throw new Error(112)
             }
             return con("insert into user (`email`,`password`,`username`,`roleid`) values (?,?,?,?)", [req.query.email, md5(req.query.password), req.query.name, 2])
         }).then(rows2 => {
-            console.log(rows2)
-            if (rows2.length) {
-                return con("SELECT * from user where `user_id`=?", [rows2[0].insertId])
+            if (rows2) {
+                return con("SELECT * from user where `user_id`=?", [rows2.insertId])
             }
             throw new Error(113)
         }).then(rows3 => {
-            console.log(rows3)
             if (rows3.length) {
                 req.session.user = {
                     id: rows3[0].user_id,
                     userName: rows3[0].username,
                     email: rows3[0].email
                 }
-                return res.json({ code: 200, msg: "注册成功", body: req.session.user })
+                return res.json(rs.response(200, "注册成功", req.session.user))
             }
             throw new Error('注册失败')
         }).catch(err => {
-            console.log(err)
             var msg = "数据库连接错误！！",
                 code = -110,
                 ob = {
@@ -139,11 +134,11 @@ router.get("/signup", (req, res) => {
                     112: "用户名已被占用",
                     113: "注册失败"
                 }
-            console.log(isNaN(err.message), err.message)
             if (!isNaN(err.message)) {
                 msg = ob[err.message]
                 code = '-' + err.message
             }
+            console.log(code, msg)
             res.json(rs.response(code, msg))
         })
 })
