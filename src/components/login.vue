@@ -2,17 +2,15 @@
     <div class="login">
         <h1>login</h1>
         <div class="form">
-            <div class="row">
-                <label for="">email</label>
-                <input v-model="user.email" type="text" name="" id="" />
-            </div>
-            <div class="row">
-                <label for="">password</label>
-                <input v-model="user.password" type="password" name="" id="" />
-            </div>
-            <div class="row">
-                <button @click="LOGIN(user)">login</button>
-            </div>
+            <group>
+                <x-input title="email" placeholder="I'm placeholder" v-model="user.email" ></x-input>
+            </group>
+            <group>
+                <x-input title="password" placeholder="I'm placeholder" v-model="user.password" :type="'password'"></x-input>
+            </group>
+            <group>
+                  <x-button  @click.native="login(user)"  type="primary">login</x-button>
+            </group>
         </div>
         <ul>
             <li>
@@ -21,37 +19,54 @@
             <li>
                 <router-link to="/signup">signup</router-link>
             </li>
+            <li>
+                <router-link to="/home">home</router-link>
+            </li>
         </ul>
     </div>
 </template>
 
 <script>
-    
-import {mapState,mapActions,mapMutations} from 'vuex';
+import { XInput, Group, XButton, Cell } from 'vux'
+import { mapState, mapActions, mapMutations } from 'vuex';
 
 export default {
     name: 'login',
+    components: {
+        XInput,
+        XButton,
+        Group,
+        Cell
+    },
     data() {
         return {
             msg: 'false',
             user: {
-                password:'',
-                email:''
+                password: '',
+                email: ''
             }
         }
     },
-    computed:{
+    computed: {
         ...mapState([
             'fuck'
         ]),
     },
     methods: {
         ...mapActions([
-				'SHIT','LOGIN'
-			]),
+            'SHIT', 'LOGIN'
+        ]),
         damn() {
             this.SHIT();
         },
+        login(data) {
+            this.LOGIN(data).then(data => {
+                console.log(data);
+                this.$router.push('/home');
+            }, data => {
+                console.log('error', data);
+            })
+        }
     }
 }
 </script>

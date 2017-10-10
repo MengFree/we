@@ -1,30 +1,12 @@
 <template>
     <div class="hello">
-        <h1>{{ msg }}</h1>
-        <h2>Essential Links</h2>
-        <ul>
+       test
+       <ul>
             <li>
-                <a href="#" @click="damn">{{fuck}}</a>
+                <router-link to="/home/test1">test1</router-link>
             </li>
             <li>
-                <router-link to="/home">home</router-link>
-            </li>
-        </ul>
-        <h2>Ecosystem</h2>
-        <input type="file" ref='input' @change="hhe">
-        <img :src="src" v-if="src">
-        <ul>
-            <li>
-                <router-link to="/login">login</router-link>
-            </li>
-            <li>
-                <router-link to="/signup">signup</router-link>
-            </li>
-            <li>
-                <router-link to="/home">home</router-link>
-            </li>
-            <li>
-                <a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a>
+                <a @click="loadTest"> load </a>
             </li>
         </ul>
     </div>
@@ -35,7 +17,7 @@
 import { mapState, mapActions, mapMutations } from 'vuex';
 
 export default {
-    name: 'Hello',
+    name: 'test',
     data() {
         return {
             msg: 'false',
@@ -70,6 +52,16 @@ export default {
             };
             xhr.open("post", '/api/uploadimg');
             xhr.send(fd);
+        },
+        loadTest() {
+          this.$http.get('/api/login', {
+              params:{
+              name: "free",
+              password:"a123456"
+          }
+          }).then(res => {
+              console.log(res.data);
+          })  
         }
     }
 }

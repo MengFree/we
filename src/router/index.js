@@ -5,6 +5,9 @@ import Router from 'vue-router'
 const Hello = r => require.ensure([], () => r(require('../components/Hello')), 'Hello')
 const login = r => require.ensure([], () => r(require('../components/login')), 'login')
 const signup = r => require.ensure([], () => r(require('../components/signup')), 'signup')
+const home = r => require.ensure([], () => r(require('../components/home')), 'home')
+const test = r => require.ensure([], () => r(require('../components/test')), 'test')
+const test1 = r => require.ensure([], () => r(require('../components/test1')), 'test1')
 
 Vue.use(Router)
 
@@ -24,6 +27,19 @@ export default new Router({
         path: '/signup',
         name: 'signup',
         component: signup
+    }, {
+        path: '/home',
+        name: 'home',
+        component: home,
+        children: [{
+            path: '',
+            name: 'test',
+            component: test,
+        }, {
+            path: 'test1',
+            name: 'test1',
+            component: test1,
+        }]
     }],
     mode: 'history', //路由模式
     strict: true,

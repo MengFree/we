@@ -6,8 +6,8 @@ var vueLoaderConfig = require('./vue-loader.conf')
 function resolve(dir) {
     return path.join(__dirname, '..', dir)
 }
-
-module.exports = {
+const vuxLoader = require('vux-loader')
+const webpackConfig = {
     entry: {
         app: './src/main.js'
     },
@@ -15,8 +15,7 @@ module.exports = {
         path: config.build.assetsRoot,
         filename: '[name].js',
         publicPath: process.env.NODE_ENV === 'production' ?
-            config.build.assetsPublicPath :
-            config.dev.assetsPublicPath
+            config.build.assetsPublicPath : config.dev.assetsPublicPath
     },
     resolve: {
         extensions: ['.js', '.vue', '.json'],
@@ -69,7 +68,11 @@ module.exports = {
                     limit: 10000,
                     name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
                 }
-            }
+            },
         ]
     }
 }
+module.exports = vuxLoader.merge(webpackConfig, {
+    options: { showVuxVersionInfo: false },
+    plugins: [{ name: 'vux-ui' }]
+})

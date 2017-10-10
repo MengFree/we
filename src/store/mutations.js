@@ -4,7 +4,10 @@ export default {
         state.fuck = msg;
     },
     [types.LOGIN](state, data) {
-        state.name = data.name;
+        state.email = data.email;
+        state.uid = data.id;
+        state.name = data.userName;
+        console.log(state);
     },
     [types.SIGNUP](state, data) {
         state.name = data.name;

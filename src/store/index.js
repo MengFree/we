@@ -8,7 +8,8 @@ import actions from './actions'
 
 const state = {
     fuck: 'damn!!',
-    name: null,
+    name: "null",
+    uid: "null"
 }
 
 export default {

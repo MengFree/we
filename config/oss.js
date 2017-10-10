@@ -11,5 +11,6 @@ module.exports = {
         'aliyun_oss_url': 'http://uat-wolianw-goods.oss-cn-qingdao.aliyuncs.com/',
         // 上传图片
         'img_root_url': path.join(rootPath, '/public/pcweb/uploadimg'), //需要自己手动在项目目录下创建/public/pcweb 文件夹
-    }
+    },
+    baseImg: 'http://uat-wolianw-goods.oss-cn-qingdao.aliyuncs.com/1506324479641-86344854.png'
 };
