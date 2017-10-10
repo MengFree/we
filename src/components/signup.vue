@@ -2,17 +2,18 @@
     <div class="login">
         <h1>signup</h1>
         <div class="form">
-            <div class="row">
-                <label for="">email</label>
-                <input v-model="user.email" type="text" name="" id="" />
-            </div>
-            <div class="row">
-                <label for="">password</label>
-                <input v-model="user.password" type="password" name="" id="" />
-            </div>
-            <div class="row">
-                <button @click="signup(user)">signup</button>
-            </div>
+            <group>
+                <x-input title="username" placeholder="" v-model="user.name" ></x-input>
+            </group>
+            <group>
+                <x-input title="email" placeholder="" v-model="user.email" ></x-input>
+            </group>
+            <group>
+                <x-input title="password" placeholder="" v-model="user.password" :type="'password'"></x-input>
+            </group>
+            <group>
+                  <x-button  @click.native="signup(user)"  type="primary">signup</x-button>
+            </group>
         </div>
         <ul>
             <li>
@@ -26,17 +27,24 @@
 </template>
 
 <script>
-    
+import { XInput, Group, XButton, Cell } from 'vux'
 import {mapState,mapActions,mapMutations} from 'vuex';
 
 export default {
     name: 'signup',
+    components: {
+        XInput,
+        XButton,
+        Group,
+        Cell
+    },
     data() {
         return {
             msg: 'false',
             user: {
                 password:'',
-                email:''
+                email: '',
+                name:''
             }
         }
     },

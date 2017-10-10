@@ -1,5 +1,7 @@
 require('./check-versions')()
 
+var session = require('express-session');
+var cookieParser = require('cookie-parser');
 var config = require('../config')
 if (!process.env.NODE_ENV) {
     process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV)
@@ -52,7 +54,14 @@ Object.keys(proxyTable).forEach(function(context) {
     }
     app.use(proxyMiddleware(options.filter || context, options))
 })
-
+app.use(cookieParser());
+app.use(session({
+    secret: '12345',
+    name: 'testapp', //这里的name值得是cookie的name，默认cookie的name是：connect.sid
+    cookie: { maxAge: 24 * 60 * 60 * 1000 }, //设置maxAge是ms，即1天后session和相应的cookie失效过期
+    resave: false,
+    saveUninitialized: true,
+}));
 // handle fallback for HTML5 history API
 app.use(require('connect-history-api-fallback')())
 

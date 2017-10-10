@@ -7,6 +7,10 @@
                     </cell>
                     <cell title="test1" link="/home/test1" @click.native="drawerVisibility = false">
                     </cell>
+                    <cell title="login" link="/login" @click.native="drawerVisibility = false">
+                    </cell>
+                    <cell title="signup" link="/signup" @click.native="drawerVisibility = false">
+                    </cell>
                 </group>
             </div>
             <view-box ref="viewBox" body-padding-bottom="55px">

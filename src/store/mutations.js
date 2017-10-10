@@ -5,7 +5,8 @@ export default {
     },
     [types.LOGIN](state, data) {
         state.email = data.email;
-        state.uid = data.email;
+        state.uid = data.id;
+        state.name = data.userName;
         console.log(state);
     },
     [types.SIGNUP](state, data) {

@@ -1,18 +1,24 @@
 import * as types from './mutation-types.js'
 // import firebase from '../serve/'
-
+import * as api from "../api/api"
 export default {
     [types.SHIT]({ commit, state }) {
         commit(types.SHIT, 'fucker')
     },
     [types.LOGIN]({ commit, state }, data) {
-        console.log(data);
+        console.log(data)
         return new Promise(function(resolve, reject) {
             if (data.email && data.password) {
-                commit(types.LOGIN, data);
-                resolve('done');
+                api.login(data).then(res => {
+                    if (res.data.code == 200) {
+                        commit(types.LOGIN, res.data.body)
+                        resolve(res.data.body)
+                    } else {
+                        reject(res.data.msg)
+                    }
+                })
             } else {
-                reject('damn');
+                reject('damn!!!!!')
             }
         });
         // return firebase.auth()
@@ -31,7 +37,22 @@ export default {
     },
     [types.SIGNUP]({ commit, state }, data) {
         console.log(data);
-        commit(types.SIGNUP, data);
+        return new Promise(function(resolve, reject) {
+            if (data.email && data.password) {
+                api.signup(data).then(res => {
+                    if (res.data.code == 200) {
+                        commit(types.SIGNUP, res.data.body)
+                        resolve(res.data.body)
+                    } else {
+                        reject(res.data.msg)
+                    }
+                })
+            } else {
+                reject('damn!!!!!')
+            }
+        });
+
+
         // firebase.auth()
         //     .createUserWithEmailAndPassword(data.email, data.password).catch(function(error) {
         //         // Handle Errors here.

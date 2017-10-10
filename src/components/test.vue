@@ -5,6 +5,9 @@
             <li>
                 <router-link to="/home/test1">test1</router-link>
             </li>
+            <li>
+                <a @click="loadTest"> load </a>
+            </li>
         </ul>
     </div>
 </template>
@@ -49,6 +52,16 @@ export default {
             };
             xhr.open("post", '/api/uploadimg');
             xhr.send(fd);
+        },
+        loadTest() {
+          this.$http.get('/api/login', {
+              params:{
+              name: "free",
+              password:"a123456"
+          }
+          }).then(res => {
+              console.log(res.data);
+          })  
         }
     }
 }
