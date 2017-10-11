@@ -1,15 +1,21 @@
-import * as types from './mutation-types.js'
+import * as types from "./mutation-types.js"
 export default {
     [types.SHIT](state, msg) {
-        state.fuck = msg;
+        state.fuck = msg
     },
     [types.LOGIN](state, data) {
-        state.email = data.email;
-        state.uid = data.id;
-        state.name = data.userName;
-        console.log(state);
+        state.user.email = data.email
+        state.user.uid = data.id
+        state.user.name = data.userName
     },
     [types.SIGNUP](state, data) {
-        state.name = data.name;
+        state.name = data.name
+    },
+    [types.LOADING](state, data) {
+        if (data) {
+            state.loading++
+        } else {
+            state.loading--
+        }
     },
 }

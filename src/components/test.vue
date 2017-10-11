@@ -8,6 +8,9 @@
             <li>
                 <a @click="loadTest"> load </a>
             </li>
+            <li>
+                <a @click="Baidu"> load Baidu </a>
+            </li>
         </ul>
     </div>
 </template>
@@ -33,6 +36,11 @@ export default {
         ...mapActions([
             'SHIT'
         ]),
+        Baidu() {
+            this.$http.get('http://www.baidu.com').then(res =>{
+                console.log(res)
+            })
+        },
         damn() {
             this.SHIT();
         },

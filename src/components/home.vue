@@ -2,7 +2,7 @@
     <div class="body" style="height:100%;">
         <drawer width="200px;" :show.sync="drawerVisibility" :show-mode="showModeValue" :placement="showPlacementValue" :drawer-style="{'background-color':'#35495e', width: '200px'}">
             <div slot="drawer">
-                <group title="Drawer demo(beta)">
+                <group :title=user.name>
                     <cell title="test" link="/home" value="演示" @click.native="drawerVisibility = false">
                     </cell>
                     <cell title="test1" link="/home/test1" @click.native="drawerVisibility = false">
@@ -64,7 +64,9 @@ export default {
 
     },
     computed: {
-        ...mapState([]),
+        ...mapState([
+            'user'
+        ]),
         title(){
             var $name=this.$route.name,
             list= {
@@ -99,6 +101,9 @@ export default {
 </script>
 
 <style lang="less">
+.body .weui-cells__title{
+    color: #ffffff;
+}
 .router-view {
   width: 100%;
   top: 46px;

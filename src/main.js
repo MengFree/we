@@ -6,10 +6,12 @@ import router from "./router/"
 import astore from "./store/"
 import Vuex from "vuex"
 import axios from "./serve/axios"
+import { ToastPlugin } from "vux"
+
 // import "./style/main.css"
 import "./style/main.less"
 router.beforeEach(function(to, from, next) {
-    if (!store.state.uid && !(to.name == "Hello" || to.name == "login" || to.name == "signup")) {
+    if (!store.state.user.uid && !(to.name == "Hello" || to.name == "login" || to.name == "signup")) {
         return next({
             path: "/login"
         })
@@ -19,6 +21,7 @@ router.beforeEach(function(to, from, next) {
 const FastClick = require("fastclick")
 FastClick.attach(document.body)
 Vue.use(Vuex)
+Vue.use(ToastPlugin)
 var store = new Vuex.Store(astore)
 Vue.config.productionTip = false
     /* eslint-disable no-new */
@@ -30,3 +33,4 @@ new Vue({
     template: "<App/>",
     components: { App }
 })
+export default store

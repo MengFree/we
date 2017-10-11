@@ -79,38 +79,36 @@ router.post("/uploadimg", (req, res) => {
     })
 })
 
-router.get("/login", (req, res) => {
-    console.log(req.query.email, md5(req.query.password))
-    con("SELECT * from user where `email`=? AND `password`=?", [req.query.email, md5(req.query.password)])
+router.post("/login", (req, res) => {
+    console.log(req)
+    con("SELECT * from user where `email`=? AND `password`=?", [req.body.email, md5(req.body.password)])
         .then(rows => {
-            console.log(rows)
             if (rows.length) {
                 req.session.user = {
                     id: rows[0].user_id,
                     userName: rows[0].username,
                     email: rows[0].email
                 }
-                return res.json({ code: 200, msg: "登录成功", body: req.session.user })
+                return res.json(rs.response(200, "登录成功", req.session.user))
             }
-            res.json({ code: -110, msg: "找不到该用户", body: null })
+            res.json(rs.response(-110, "找不到该用户,或密码不对"))
         }).catch(err => {
             console.log(err)
             res.json(rs.response(-110, "数据库连不上啊！！！！！"))
         })
 })
-router.get("/signup", (req, res) => {
-    console.log(req.query.name, req.query.email, md5(req.query.password))
-    con("select `user_id` from user where `email`=?", [req.query.email])
+router.post("/signup", (req, res) => {
+    con("select `user_id` from user where `email`=?", [req.body.email])
         .then(rows1 => {
             if (rows1.length) {
                 throw new Error(111)
             }
-            return con("select `user_id` from user where `username`=?", [req.query.name])
+            return con("select `user_id` from user where `username`=?", [req.body.name])
         }).then(rows1 => {
             if (rows1.length) {
                 throw new Error(112)
             }
-            return con("insert into user (`email`,`password`,`username`,`roleid`) values (?,?,?,?)", [req.query.email, md5(req.query.password), req.query.name, 2])
+            return con("insert into user (`email`,`password`,`username`,`roleid`) values (?,?,?,?)", [req.body.email, md5(req.body.password), req.body.name, 2])
         }).then(rows2 => {
             if (rows2) {
                 return con("SELECT * from user where `user_id`=?", [rows2.insertId])
@@ -125,7 +123,7 @@ router.get("/signup", (req, res) => {
                 }
                 return res.json(rs.response(200, "注册成功", req.session.user))
             }
-            throw new Error('注册失败')
+            throw new Error("注册失败")
         }).catch(err => {
             var msg = "数据库连接错误！！",
                 code = -110,

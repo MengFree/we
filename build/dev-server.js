@@ -14,6 +14,7 @@ var webpack = require('webpack')
 var proxyMiddleware = require('http-proxy-middleware')
 var webpackConfig = require('./webpack.dev.conf')
 var minimist = require('minimist');
+var bodyParser = require('body-parser');
 var args = minimist(process.argv.slice(2), { //取命令行参数
     string: ["env"]
 });
@@ -61,6 +62,11 @@ app.use(session({
     cookie: { maxAge: 24 * 60 * 60 * 1000 }, //设置maxAge是ms，即1天后session和相应的cookie失效过期
     resave: false,
     saveUninitialized: true,
+}));
+// app.use(xmlparser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
 }));
 // handle fallback for HTML5 history API
 app.use(require('connect-history-api-fallback')())
