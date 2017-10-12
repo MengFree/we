@@ -33,4 +33,5 @@ new Vue({
     template: "<App/>",
     components: { App }
 })
+import 'es6-promise/auto'
 export default store

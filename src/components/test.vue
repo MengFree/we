@@ -11,6 +11,9 @@
             <li>
                 <a @click="Baidu"> load Baidu </a>
             </li>
+            <li>
+                <a @click="gg"> load gg </a>
+            </li>
         </ul>
     </div>
 </template>
@@ -41,6 +44,11 @@ export default {
                 console.log(res)
             })
         },
+        gg() {
+            this.$http.get('/pp/user/456').then(res =>{
+                console.log('res',res.data)
+            })
+        },
         damn() {
             this.SHIT();
         },
@@ -68,7 +76,7 @@ export default {
               password:"a123456"
           }
           }).then(res => {
-              console.log(res.data);
+              console.log('res',res.data);
           })  
         }
     }

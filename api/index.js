@@ -8,42 +8,42 @@ var router = require("express").Router(),
 var config = require("../config/oss")
 module.exports = router
 var rs = {
-        response: function(code, msg, body) {
-            if (typeof code === "object") {
-                body = code
-                code = null
-            }
-            if (code == "unlogin") {
-                code = -404
-                msg = "未登录/登录超时！"
-                body = null
-            }
-            if (code == "error") {
-                code = -110
-                msg = "服务器访问错误！"
-                body = null
-            }
-            if (code == "params") {
-                code = -120
-                msg = "缺少必要参数！" + msg
-                body = null
-            }
-            if (code == "noPermission") {
-                code = -140
-                msg = "无权访问"
-                body = null
-            }
-            var result = {
-                meta: {
-                    code: code || 200,
-                    msg: msg || "success"
-                },
-                body: body || null
-            }
-            return result
+    response: function(code, msg, body) {
+        if (typeof code === "object") {
+            body = code
+            code = null
         }
+        if (code == "unlogin") {
+            code = -404
+            msg = "未登录/登录超时！"
+            body = null
+        }
+        if (code == "error") {
+            code = -110
+            msg = "服务器访问错误！"
+            body = null
+        }
+        if (code == "params") {
+            code = -120
+            msg = "缺少必要参数！" + msg
+            body = null
+        }
+        if (code == "noPermission") {
+            code = -140
+            msg = "无权访问"
+            body = null
+        }
+        var result = {
+            meta: {
+                code: code || 200,
+                msg: msg || "success"
+            },
+            body: body || null
+        }
+        return result
     }
-    // 上传图片
+};
+// 上传图片
 router.post("/uploadimg", (req, res) => {
     var form = new formidable.IncomingForm() //创建上传表单
     form.encoding = "utf-8" //设置编辑
@@ -55,7 +55,7 @@ router.post("/uploadimg", (req, res) => {
     form.keepExtensions = true //保留后缀
     form.maxFieldsSize = 200 * 1024 * 1024 //文件大小
     form.parse(req, function(err, fields, files) {
-        if (err) {
+        if (err || !files.IMG) {
             return res.send(rs.response("error"))
         }
         var localUrl = files.IMG.path
@@ -80,7 +80,6 @@ router.post("/uploadimg", (req, res) => {
 })
 
 router.post("/login", (req, res) => {
-    console.log(req)
     con("SELECT * from user where `email`=? AND `password`=?", [req.body.email, md5(req.body.password)])
         .then(rows => {
             if (rows.length) {

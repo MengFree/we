@@ -3,6 +3,7 @@ import store from "../main"
 import qs from "qs"
 // 添加请求拦截器
 axios.interceptors.request.use(function(config) {
+        config.$title = config.$title || 'request'
         store.dispatch("LOADING", true)
             // 在发送请求之前做些什么
         console.log(`request  <(${config.$title})>  start !!!`)

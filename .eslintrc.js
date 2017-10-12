@@ -13,20 +13,21 @@ module.exports = {
     },
     "rules": {
         "indent": [
-            "error",
+            "warn",
             4
         ],
-        "linebreak-style": [
-            "error",
-            "windows"
-        ],
-        "quotes": [
-            "error",
-            "double"
-        ],
-        "semi": [
-            "error",
-            "never"
-        ]
+        // "linebreak-style": [
+        //     "error",
+        //     "windows"
+        // ],
+        // "quotes": [
+        //     "error",
+        //     "double"
+        // ],
+        // "semi": [
+        //     "error",
+        //     "never"
+        // ],
+        "no-console": "off"
     }
 };

@@ -2,12 +2,21 @@ var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
+var minimist = require('minimist');
+var args = minimist(process.argv.slice(2), { //取命令行参数
+    string: ["env"]
+});
+console.log(args, args["env"])
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir)
 }
 const vuxLoader = require('vux-loader')
 const webpackConfig = {
+    watch: !!args["env"],
+    watchOptions: {
+        ignored: [/node_modules/, '/api/']
+    },
     entry: {
         app: './src/main.js'
     },
