@@ -22,12 +22,12 @@ function query(sql, params) {
         let connection = getConnection()
         connection.query(sql, params, function(err, rows, fields) {
             connection.end()
-            console.log('sql = ', this.sql)
+            console.log('sql => ', this.sql)
             if (err) {
                 return reject(err)
             }
             var json = JSON.parse(JSON.stringify(rows))
-            console.log('rows = ', json)
+            console.log('rows => ', json)
             resolve(json, fields)
         })
     })

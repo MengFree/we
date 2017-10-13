@@ -29,26 +29,18 @@
 </template>
 
 <script type='text/javascript'>
-import { Radio, Group, Cell, Badge, Drawer, Actionsheet, ButtonTab, ButtonTabItem, ViewBox, XHeader, Tabbar, TabbarItem, Loading, TransferDom } from 'vux'
+import { Group, Cell,  Drawer, ViewBox, XHeader, TransferDom } from 'vux'
 import { mapState, mapActions } from 'vuex'
 export default {
     directives: {
         TransferDom
     },
     components: {
-        Radio,
         Group,
         Cell,
-        Badge,
         Drawer,
-        ButtonTab,
-        ButtonTabItem,
         ViewBox,
         XHeader,
-        Tabbar,
-        TabbarItem,
-        Loading,
-        Actionsheet,
     },
     methods: {
         toggleMenu() {

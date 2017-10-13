@@ -70,11 +70,9 @@ export default {
             xhr.send(fd);
         },
         loadTest() {
-          this.$http.get('/api/login', {
-              params:{
-              name: "free",
+          this.$http.post('/api/login', {
+              email: "mfr452@qq.com",
               password:"a123456"
-          }
           }).then(res => {
               console.log('res',res.data);
           })  

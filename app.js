@@ -5,16 +5,14 @@ var config = require("./config")
 var path = require("path")
 var express = require("express")
 var proxyMiddleware = require("http-proxy-middleware")
-    // var webpackConfig = require("./webpack.dev.conf")
 var bodyParser = require("body-parser")
-    // default port where dev server listens for incoming traffic
 var port = 8080
 var proxyTable = config.dev.proxyTable
 
 var app = express()
-    // var compiler = webpack(webpackConfig)
 
-// proxy api requests
+process.env.NODE_ENV = "production"
+    // proxy api requests
 Object.keys(proxyTable).forEach(function(context) {
     var options = proxyTable[context]
     if (typeof options === "string") {
@@ -24,18 +22,18 @@ Object.keys(proxyTable).forEach(function(context) {
 })
 app.use(cookieParser())
 app.use(session({
-        secret: "12345",
-        name: "testapp", //这里的name值得是cookie的name，默认cookie的name是：connect.sid
-        cookie: { maxAge: 24 * 60 * 60 * 1000 }, //设置maxAge是ms，即1天后session和相应的cookie失效过期
-        resave: false,
-        saveUninitialized: true,
-    }))
-    // app.use(xmlparser())
+    secret: "12345",
+    name: "testapp", //这里的name值得是cookie的name，默认cookie的name是：connect.sid
+    cookie: { maxAge: 24 * 60 * 60 * 1000 }, //设置maxAge是ms，即1天后session和相应的cookie失效过期
+    resave: false,
+    saveUninitialized: true,
+}));
+// app.use(xmlparser())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
-        extended: true
-    }))
-    // handle fallback for HTML5 history API
+    extended: true
+}));
+// handle fallback for HTML5 history API
 app.use(require("connect-history-api-fallback")())
 
 // serve webpack bundle output
@@ -49,26 +47,29 @@ app.use(require("connect-history-api-fallback")())
 // var staticPath = path.posix.join("/", "./dist", "./static")
 // console.log(staticPath)
 // app.use(staticPath, express.static("./static"))
-var p = express()
-p.param('id', function(req, res, next, id) {
-    console.log(id)
-    req.session.idss = id
-    console.log('CALLED ONLY ONCE');
-    next();
-})
+// var p = express()
+// p.param('id', function(req, res, next, id) {
+//     console.log(id)
+//     req.session.idss = id
+//     console.log('CALLED ONLY ONCE');
+//     next();
+// })
 
-p.get('/user/:id', function(req, res, next) {
-    console.log('although this matches');
-    next();
-});
+// p.get('/user/:id', function(req, res, next) {
+//     console.log('although this matches');
+//     next();
+// });
 
-p.get('/user/:id', function(req, res) {
-    console.log('and this matches too');
-    res.end('msg');
-    console.log(req.session.idss)
-});
-app.use("/pp", p)
-
+// p.get('/user/:id', function(req, res) {
+//     console.log('and this matches too');
+//     res.end('msg');
+//     console.log(req.session.idss)
+// });
+// app.use("/pp", p)
+// app.use("*", function(req, res, next) {
+//     console.log(req.baseUrl)
+//     next();
+// });
 var uri = "http://localhost:" + port
 
 var _resolve

@@ -21,7 +21,7 @@ axios.interceptors.response.use(function(response) {
     response.config.method.toLowerCase() == "get" && response.config.params && console.log("params:", response.config.params)
     var index = response.config.url.indexOf("?")
     index > -1 && (index + 1) < response.config.url.length && console.log("search:", qs.parse(response.config.url.substring(index + 1)))
-        (response.config.method.toLowerCase() == "post" || response.config.method == "put") && console.log("params:", response.config.data)
+    response.config.method.toLowerCase() == "post" || response.config.method == "put" && console.log("params:", response.config.data)
     console.log("response:", response.data)
         // console.timeEnd("time" + response.config.$title)
     console.log(`=======================${response.config.$title}    end=======================`)
@@ -31,9 +31,9 @@ axios.interceptors.response.use(function(response) {
         // 对响应错误做点什么
         // console.log(error.response)
     console.log(`=======================${error.config.$title} Error begin=======================`)
-    if (error && error.response) {
-        logMessage(error.response.status)
-    }
+        // if (error && error.response) {
+        //     logMessage(error.response.status)
+        // }
     console.log("url:", error.config.method, error.config.url)
     error.config.method.toLowerCase() == "get" && error.config.params && console.log("params:", error.config.params)
     console.log("search:", qs.parse(error.config.url))

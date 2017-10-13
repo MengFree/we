@@ -1,22 +1,42 @@
 <template>
     <div class="login">
-        <h1>signup</h1>
+        <h1 class="title">signup</h1>
         <div class="form">
             <group>
-                <x-input title="username" placeholder="" v-model="user.name"></x-input>
+                <x-input title="username" placeholder="" v-model="user.name">
+                    <span slot="label" style="padding-right:10px;display:block;">
+                        <x-icon type="ios-contact" size="30" class="ion-color"></x-icon>
+                        <font class="label-ion">username</font>
+                    </span>
+                </x-input>
 
-                <x-input title="email" placeholder="" v-model="user.email"></x-input>
+                <x-input title="email" placeholder="" v-model="user.email">
+                    <span slot="label" style="padding-right:10px;display:block;color: #42b983;">
+                        <x-icon type="ios-email-outline" size="30" class="ion-color"></x-icon>
+                        <font class="label-ion">email</font>
+                    </span>
+                </x-input>
 
-                <x-input title="password" placeholder="" v-model="user.password" :type="'password'"></x-input>
+                <x-input title="password" placeholder="" v-model="user.password" :type="'password'" @on-enter="signup">
+                    <span slot="label" style="padding-right:10px;display:block;">
+                        <x-icon type="ios-locked-outline" size="30" class="ion-color"></x-icon>
+                        <font class="label-ion">password</font>
+                    </span>
+                </x-input>
             </group>
             <div class="cg">
                 <group>
-                    <x-button @click.native="signup()" type="primary">signup</x-button>
+                    <x-button @click.native="signup" type="primary">
+                        <span class="btn-ion">
+                            <x-icon type="android-upload" size="25"></x-icon>
+                        </span>
+                        signup
+                    </x-button>
                 </group>
             </div>
         </div>
 
-        <ul>
+        <ul class="links">
             <li>
                 <router-link to="/Hello">Hello</router-link>
             </li>
@@ -28,8 +48,8 @@
 </template>
 
 <script>
-import { XInput, Group, XButton, Cell, Spinner } from 'vux'
-import { mapState, mapActions, mapMutations } from 'vuex';
+import { XInput, Group, XButton, Cell } from 'vux'
+import { mapState, mapActions } from 'vuex';
 
 export default {
     name: 'signup',
@@ -37,8 +57,7 @@ export default {
         XInput,
         XButton,
         Group,
-        Cell,
-        Spinner
+        Cell
     },
     data() {
         return {
@@ -91,7 +110,7 @@ export default {
             this.SHIT();
         },
         signup() {
-            var that=this
+            var that = this
             if (this.isValid) {
                 return this.$vux.toast.text(this.isValid, 'top')
             }
@@ -114,27 +133,24 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style  lang="less">
-h1,
-h2 {
-    font-weight: normal;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    display: inline-block;
-    margin: 0 10px;
-}
-
-a {
-    color: #42b983;
-}
 
 .cg {
     width: 80%;
     margin: 0 auto;
 }
+
+.links {
+    text-align: center;
+    display: flex;
+    li {
+        flex: 1;
+        list-style: none;
+        padding-top: 15px;
+        a {
+            color: #42b983;
+        }
+    }
+}
+
+
 </style>

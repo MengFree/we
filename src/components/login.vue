@@ -1,20 +1,34 @@
 <template>
     <div class="login">
-        <h1>login</h1>
+        <h1 class="title">login</h1>
         <div class="form">
             <group>
-                <x-input title="email" placeholder="I'm placeholder" v-model="user.email"></x-input>
-            </group>
-            <group>
-                <x-input title="password" placeholder="I'm placeholder" v-model="user.password" :type="'password'"></x-input>
+                <x-input title="email" placeholder="I'm placeholder" v-model="user.email">
+                    <span slot="label" style="padding-right:10px;display:block;">
+                        <x-icon type="ios-email-outline" size="30" class="ion-color"></x-icon>
+                        <font class="label-ion">email</font>
+                    </span>
+                </x-input>
+
+                <x-input title="password" placeholder="I'm placeholder" v-model="user.password" :type="'password'">
+                    <span slot="label" style="padding-right:10px;display:block;">
+                        <x-icon type="ios-locked-outline" size="30" class="ion-color"></x-icon>
+                        <font class="label-ion">password</font>
+                    </span>
+                </x-input>
             </group>
             <div class="cg">
                 <group>
-                    <x-button @click.native="login(user)" type="primary">login</x-button>
+                    <x-button @click.native="login(user)" type="primary">
+                        <span class="btn-ion">
+                            <x-icon type="android-cloud-done" size="25"></x-icon>
+                        </span>
+                        login
+                    </x-button>
                 </group>
             </div>
         </div>
-        <ul>
+        <ul class="links">
             <li>
                 <router-link to="/Hello">Hello</router-link>
             </li>
@@ -30,7 +44,7 @@
 
 <script>
 import { XInput, Group, XButton, Cell } from 'vux'
-import { mapState, mapActions, mapMutations } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default {
     name: 'login',
@@ -90,7 +104,7 @@ export default {
                 return this.$vux.toast.text(this.isValid, 'top')
             }
             this.LOGIN(data).then(res => {
-                console.log("res",res);
+                console.log("res", res);
                 this.$vux.toast.show({
                     text: res,
                     onHide() {
@@ -106,25 +120,33 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="less">
 h1,
 h2 {
-    font-weight: normal;
+    text-align: center;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
+.links {
+    text-align: center;
+    display: flex;
+    li {
+        flex: 1;
+        list-style: none;
+        padding-top: 15px;
+        a {
+            color: #42b983;
+        }
+    }
 }
 
-li {
+.label-ion {
+    line-height: 35px;
+    vertical-align: text-bottom;
+    height: 100%;
     display: inline-block;
-    margin: 0 10px;
+    width: 80px;
 }
 
-a {
-    color: #42b983;
-}
 .cg {
     width: 80%;
     margin: 0 auto;
