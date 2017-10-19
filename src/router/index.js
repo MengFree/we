@@ -1,6 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 // import Hello from '@/components/Hello'
+// import login from '@/components/login'
+// import signup from '@/components/signup'
+// import home from '@/components/home'
+// import test from '@/components/test'
+// import test1 from '@/components/test1'
 
 const Hello = r => require.ensure([], () => r(require('../components/Hello')), 'Hello')
 const login = r => require.ensure([], () => r(require('../components/login')), 'login')
@@ -31,14 +37,22 @@ export default new Router({
         path: '/home',
         name: 'home',
         component: home,
+        // children: [{
+        //     path: '',
+        //     name: 'test',
+        //     component: test,
+        // }, {
+        //     path: 'test1',
+        //     name: 'test1',
+        //     component: test1,
+        // }],
         children: [{
             path: '',
             name: 'test',
-            component: test,
-        }, {
-            path: 'test1',
-            name: 'test1',
-            component: test1,
+            components: {
+                t1: test,
+                t2: test1
+            },
         }]
     }],
     mode: 'history', //路由模式

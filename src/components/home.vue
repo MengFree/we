@@ -21,8 +21,9 @@
                     <span>{{title}}</span>
                 </x-header>
                 <transition :name="'vux-pop-in'">
-                    <router-view class="router-view"></router-view>
+                    <router-view class="router-view" name='t1'></router-view>
                 </transition>
+                    <router-view class="router-view" name='t2'></router-view>
             </view-box>
         </drawer>
     </div>

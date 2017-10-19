@@ -70,9 +70,10 @@ export default {
             xhr.send(fd);
         },
         loadTest() {
-          this.$http.post('/api/login', {
-              email: "mfr452@qq.com",
-              password:"a123456"
+          this.$http.get('/proxy/dispatch_center/dispatch/order/realTimeMonitoringByHead', {
+              params: {
+                   provId: 19, cityId: 199, areaId: 1771, stationId: 30
+              }
           }).then(res => {
               console.log('res',res.data);
           })  

@@ -6,7 +6,7 @@ var path = require("path")
 var express = require("express")
 var proxyMiddleware = require("http-proxy-middleware")
 var bodyParser = require("body-parser")
-var port = 8080
+var port = 8888
 var proxyTable = config.dev.proxyTable
 
 var app = express()
